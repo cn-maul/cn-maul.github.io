@@ -1,8 +1,9 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://cn-maul.github.io/'
 languageCode = 'zh-cn'
 defaultContentLanguage = 'cn'
 title = 'Maul'
 theme = 'coder'
+publishDir = 'docs'
 
 [params]
 colorScheme = "auto"

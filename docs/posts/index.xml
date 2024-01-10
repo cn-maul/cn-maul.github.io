@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Maul</title>
-    <link>https://example.org/posts/</link>
+    <link>https://cn-maul.github.io/posts/</link>
     <description>Recent content in Posts on Maul</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 11 Jan 2024 02:34:57 +0800</lastBuildDate>
-    <atom:link href="https://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://cn-maul.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>从零开始实现高性能日志服务</title>
-      <link>https://example.org/posts/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%80%A7%E8%83%BD%E6%97%A5%E5%BF%97%E6%9C%8D%E5%8A%A1/</link>
+      <link>https://cn-maul.github.io/posts/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%80%A7%E8%83%BD%E6%97%A5%E5%BF%97%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Thu, 11 Jan 2024 02:34:57 +0800</pubDate>
-      <guid>https://example.org/posts/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%80%A7%E8%83%BD%E6%97%A5%E5%BF%97%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>https://cn-maul.github.io/posts/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%80%A7%E8%83%BD%E6%97%A5%E5%BF%97%E6%9C%8D%E5%8A%A1/</guid>
       <description>1.1 buffer 池化 1.1.1 字符串拼接的性能 Go 有多种字符串拼接方式，包括 + 运算符、fmt.Sprintf 函数、strings.Join 函数、bytes.Buffer 类型、strings.Builder 类型等。&#xA;+ 运算符：每次操作都会创建一个新的字符串对象，如果需要拼接多个字符串，就会产生大量的临时对象，导致频繁的内存分配和释放，影响程序性能。 fmt.Sprintf 函数：用于格式化字符串输出，性能相对较低，因为它需要对每个参数进行类型判断和转换，每次调用都会产生一个新的字符串对象。 strings.Join 函数：将多个字符串拼接成一个字符串，性能较好，但是需要将所有要拼接的字符串放到一个切片中，如果要拼接的字符串数量很多，可能会导致切片扩容，从而带来额外的性能开销。 bytes.Buffer 类型：是一个可变长度的缓存区，它可以方便地实现字符串拼接的需求，并且其性能与 strings.Builder 类型相当。 strings.Builder 类型：是一个可变长度的缓存区，可以更灵活地处理不同长度的字符串拼接需求，并且性能也比较好。 1.1.2 最适合日志的 Buffer 在日志服务中，由于需要输出大量的日志信息，因此字符串拼接的性能非常重要。使用 fmt.Sprintf 的性能较低，而使用 + 运算符会产生大量的临时对象，会导致频繁的内存分配和释放。因此，在日志服务中，可以考虑使用 bytes.Buffer 或 strings.Builder 类型来进行字符串拼接。&#xA;这两种类型的性能相当，bytes.Buffer 常用于二进制数据的缓存，而 strings.Builder 常用于字符串的拼接。因此，在日志服务中，推荐使用 strings.Builder 类型来进行字符串拼接。&#xA;1.1.3 zap 项目的 Buffer 设计 Buffer对象的池化可以有效地避免频繁的内存分配和垃圾回收，从而提高程序的性能和效率。特别是在高并发的情况下，Buffer对象的池化可以显著地提升程序的吞吐量，并减少内存浪费。&#xA;zap 使用了 Go 语言标准库中的 sync.Pool 类型来实现缓存池功能。在 zap 中，每个 Logger 对象都有一个对应的缓存池，用于存放缓存区对象。&#xA;当需要使用一个缓存区时，可以通过 pool.Get() 方法从缓存池中获取一个对象。如果缓存池中没有可用的对象，就会调用 New 函数来创建一个新的对象。使用完毕后，可以通过 pool.Put() 方法将对象归还给缓存池，从而避免频繁的内存分配和释放。&#xA;通过这种方式，zap 可以重用已有的缓存区对象，避免频繁的内存分配和释放，提高程序的性能和效率。</description>
     </item>
   </channel>
