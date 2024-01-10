@@ -1,0 +1,28 @@
+baseURL = 'https://example.org/'
+languageCode = 'zh-cn'
+defaultContentLanguage = 'cn'
+title = 'Maul'
+theme = 'coder'
+
+[params]
+colorScheme = "auto"
+since = 2024
+author = "Maul"
+info = "消失在“多数”之中"
+avatarurl = "https://pic.superbed.cc/item/659eee9d792284bad6712ce6.webp"
+
+[[params.social]]
+name = "Github"
+icon = "fa fa-github fa-2x"
+weight = 1
+url = "https://github.com/cn-maul"
+[[params.social]]
+name = "Mail"
+icon = "fa fa-email-bulk"
+weight = 2
+url = "mailto:louis.joker@qq.com"
+
+[[menu.main]]
+  name = "Blog"
+  weight = 1
+  url  = "posts/"
