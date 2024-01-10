@@ -3,7 +3,6 @@ languageCode = 'zh-cn'
 defaultContentLanguage = 'cn'
 title = 'Maul'
 theme = 'coder'
-publishDir = 'docs'
 
 [params]
 colorScheme = "auto"
